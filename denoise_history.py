@@ -2,7 +2,7 @@ import os
 
 filtered = []
 for file in os.listdir('history'):
-    with open(os.path.join('history', file)) as f:
+    with open(os.path.join('history', file), 'r', encoding="utf-8") as f:
         data = f.readlines()
     for line in data:
         parts = line.split('|')

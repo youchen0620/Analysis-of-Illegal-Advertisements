@@ -6,7 +6,7 @@ import os
 folder_path = 'output'
 
 for file in os.listdir(folder_path):
-    with open(folder_path + '/' + file, 'r', encoding='utf-8') as f:
+    with open(os.path.join(folder_path, file), 'r', encoding='utf-8') as f:
         data = {
             "ID": [],
             "Answer": []

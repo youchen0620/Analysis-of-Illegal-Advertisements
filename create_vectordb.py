@@ -5,6 +5,8 @@ from langchain_community.vectorstores import Chroma
 import shutil
 import os
 
+os.makedirs('db', exist_ok=True)
+
 folder_path = 'history'
 
 original_db_directory = 'db/original_history'
@@ -15,7 +17,7 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=25
 
 # original history
 for file in os.listdir(folder_path):
-    with open(folder_path + '/' + file, 'r', encoding='utf-8') as f:
+    with open(os.path.join(folder_path, file), 'r', encoding='utf-8') as f:
         content = f.read().replace(' ', '')
         doc = Document(
             page_content=content,
@@ -26,7 +28,7 @@ for file in os.listdir(folder_path):
 print(len(original_splits))
 
 # denoised history
-with open('case.md', 'r', encoding='utf-8') as f:
+with open('filtered_history/case.md', 'r', encoding='utf-8') as f:
     lines = f.readlines()
     for line in lines:
         doc = Document(

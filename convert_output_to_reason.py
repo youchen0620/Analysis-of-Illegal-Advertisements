@@ -6,7 +6,7 @@ import os
 folder_path = 'output'
 
 for file in os.listdir(folder_path):
-    df = pd.read_json(folder_path + '/' + file, lines=True, encoding='utf-8')
+    df = pd.read_json(os.path.join(folder_path, file), lines=True, encoding='utf-8')
 
     questions = list(pd.read_csv("final_project_query.csv")["Question"])
     rows = []

@@ -75,8 +75,8 @@ doc_converter = DocumentConverter(
 def docling_pdf_extraction(file_name: str):
     return doc_converter.convert(file_name).document.export_to_markdown()
 
-raw_pdf_dir = "./pdf_downloads"
-result_dir = "./md_result"
+raw_pdf_dir = "pdf_downloads"
+result_dir = "history"
 os.makedirs(result_dir, exist_ok=True)
 
 pdf_files = [f for f in os.listdir(raw_pdf_dir) if f.lower().endswith(".pdf")]

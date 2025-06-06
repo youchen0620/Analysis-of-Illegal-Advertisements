@@ -17,6 +17,8 @@ import os
 import time
 from tqdm import tqdm
 
+os.makedirs('output', exist_ok=True)
+
 model_name = "dunzhang/stella_en_400M_v5"
 model_kwargs = {'device': 'cuda', 'trust_remote_code': True}
 embedding = HuggingFaceEmbeddings(model_name=model_name, model_kwargs=model_kwargs)
